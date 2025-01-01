@@ -1,8 +1,10 @@
 import Banner from "./banner/Banner";
 import BannerBg from "./banner/BannerBg";
 import Category from "./category/Category";
-import Featech from "./featech/Featech";
+import Featured from "./featured/Featured";
+
 import PopularSection from "./popularSection/PopularSection";
+import Testimial from "./testimonial/Testimial";
 
 const Home = () => {
 	return (
@@ -15,8 +17,10 @@ const Home = () => {
 			<BannerBg></BannerBg>
 			{/* popular section */}
 			<PopularSection></PopularSection>
-			{/* featech section */}
-			<Featech></Featech>
+			{/* featured section */}
+			<Featured></Featured>
+			{/* testimonial section */}
+			<Testimial></Testimial>
 		</div>
 	);
 };
