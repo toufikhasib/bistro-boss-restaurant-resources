@@ -14,16 +14,12 @@ import img1 from "../../../assets/home/slide2.jpg";
 import img2 from "../../../assets/home/slide3.jpg";
 import img3 from "../../../assets/home/slide4.jpg";
 import img4 from "../../../assets/home/slide5.jpg";
+import SectionTitle from "../../../components/sectionTitle/SectionTitle";
 
 const Category = () => {
 	return (
 		<div>
-			<div className=' text-center w-full sm:w-5/12 md:w-4/12 mx-auto'>
-				<h3 className="text-[#D99904] font-medium text-xl">---From 11:00am to 10:00pm---</h3>
-                <div className="divider"></div>
-				<h2 className="text-4xl text-[#151515] font-semibold">ORDER ONLINE</h2>
-                <div className="divider"></div>
-			</div>
+			<SectionTitle subTitle={"---From 11:00am to 10:00pm---"} title={"ORDER ONLINE"}></SectionTitle>
 			{/* swiper slider */}
 			<Swiper
 				slidesPerView={3}
