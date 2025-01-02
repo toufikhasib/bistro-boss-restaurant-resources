@@ -20,7 +20,7 @@ const Testimial = () => {
 			.then((res) => res.json())
 			.then((data) => setReviews(data));
 	}, []);
-	console.log("reviews", reviews);
+	// console.log("reviews", reviews);
 	return (
 		<div>
 			<SectionTitle

@@ -12,7 +12,8 @@ const Navbar = () => {
 			</NavLink>
 			<NavLink>CONTACT US</NavLink>
 			<NavLink>DASHBOARD</NavLink>
-			<NavLink>OUR MENU</NavLink>
+			<NavLink to='ourmenu' className={({ isActive }) =>
+					isActive ? "text-[#EEFF25] font-semibold " : ""}>OUR MENU</NavLink>
 			<NavLink>OUR SHOP</NavLink>
 		</>
 	);
@@ -37,7 +38,7 @@ const Navbar = () => {
 					</div>
 					<ul
 						tabIndex={0}
-						className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-2'>
+						className='menu menu-sm dropdown-content bg-black rounded-box z-[1] mt-3 w-52 p-2 shadow gap-2'>
 						{navlink}
 					</ul>
 				</div>
