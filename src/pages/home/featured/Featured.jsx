@@ -1,5 +1,6 @@
 
 import featchImg from "../../../assets/home/featured.jpg";
+import Button from "../../sharde/button/Button";
 import "../featured/featured.css";
 const Featured = () => {
 	return (
@@ -23,8 +24,12 @@ const Featured = () => {
 							menu offers a variety of delicious options to satisfy your
 							cravings. Visit us today and experience flavors like never before!
 						</p>
+						<div className="flex justify-items-start my-0">
+						<Button btn={"Order Now"}></Button>
+						</div>
 					</div>
 				</div>
+			
 			</div>
 		</div>
 	);

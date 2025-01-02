@@ -8,7 +8,7 @@ import soupImg from "../../../assets/menu/soup-bg.jpg";
 import OurMenuCategory from "./ourMenuCategory";
 import SectionTitle from "../../../components/sectionTitle/SectionTitle";
 import useMenu from "../../../coustomHooks/useMenu";
-import Button from "../../sharde/button/Button";
+
 
 const OurMenu = () => {
 	const [menu] = useMenu();
@@ -35,8 +35,8 @@ const OurMenu = () => {
 			<SectionTitle
 				subTitle={"---Don't miss---"}
 				title={"TODAY'S OFFER"}></SectionTitle>
-			<OurMenuCategory items={offered}></OurMenuCategory>
-			<Button btn={"ORDER YOUR FAVOURITE FOOD"}></Button>
+			<OurMenuCategory items={offered} ></OurMenuCategory>
+			
 			{/* DESSERTS section */}
 			<div className='my-10'>
 				<Cover
@@ -47,9 +47,9 @@ const OurMenu = () => {
 					}></Cover>
 			</div>
 			<div className='md:pt-10'>
-				<OurMenuCategory items={dessert}></OurMenuCategory>
+				<OurMenuCategory items={dessert} title={"dessert"}></OurMenuCategory>
 			</div>
-			<Button btn={"ORDER YOUR FAVOURITE FOOD"}></Button>
+			
 			{/* pizza section */}
 			<div className='my-10'>
 				<Cover
@@ -60,9 +60,9 @@ const OurMenu = () => {
 					}></Cover>
 			</div>
 			<div className='md:pt-10'>
-				<OurMenuCategory items={pizza}></OurMenuCategory>
+				<OurMenuCategory items={pizza} title={"pizza"}></OurMenuCategory>
 			</div>
-			<Button btn={"ORDER YOUR FAVOURITE FOOD"}></Button>
+			
 			{/* salad section */}
 			<div className='my-10'>
 				<Cover
@@ -73,9 +73,9 @@ const OurMenu = () => {
 					}></Cover>
 			</div>
 			<div className='md:pt-10'>
-				<OurMenuCategory items={salad}></OurMenuCategory>
+				<OurMenuCategory items={salad} title={"salad"}></OurMenuCategory>
 			</div>
-			<Button btn={"ORDER YOUR FAVOURITE FOOD"}></Button>
+			
 			{/* soups section */}
 			<div className='my-10'>
 				<Cover
@@ -86,9 +86,9 @@ const OurMenu = () => {
 					}></Cover>
 			</div>
 			<div className='pt-10'>
-				<OurMenuCategory items={soup}></OurMenuCategory>
+				<OurMenuCategory items={soup} title={"soup"}></OurMenuCategory>
 			</div>
-			<Button btn={"ORDER YOUR FAVOURITE FOOD"}></Button>
+			{/* <Button btn={"ORDER YOUR FAVOURITE FOOD"}></Button> */}
 		</div>
 	);
 };

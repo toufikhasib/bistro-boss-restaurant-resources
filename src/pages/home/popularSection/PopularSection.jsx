@@ -1,5 +1,6 @@
 import SectionTitle from "../../../components/sectionTitle/SectionTitle";
 import useMenu from "../../../coustomHooks/useMenu";
+import Button from "../../sharde/button/Button";
 import MenuItem from "../../sharde/menuItem/MenuItem";
 
 const PopularSection = () => {
@@ -18,6 +19,7 @@ const PopularSection = () => {
 					<MenuItem key={item._id} item={item}></MenuItem>
 				))}
 			</div>
+			<Button btn={"View Full  Menu"}></Button>
 		</div>
 	);
 };

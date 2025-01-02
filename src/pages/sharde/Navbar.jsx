@@ -12,8 +12,21 @@ const Navbar = () => {
 			</NavLink>
 			<NavLink>CONTACT US</NavLink>
 			<NavLink>DASHBOARD</NavLink>
-			<NavLink to='ourmenu' className={({ isActive }) =>
-					isActive ? "text-[#EEFF25] font-semibold " : ""}>OUR MENU</NavLink>
+			<NavLink
+				to='/ourmenu'
+				className={({ isActive }) =>
+					isActive ? "text-[#EEFF25] font-semibold " : ""
+				}>
+				OUR MENU
+			</NavLink>
+
+			<NavLink
+				to='/order/salad'
+				className={({ isActive }) =>
+					isActive ? "text-[#EEFF25] font-semibold " : ""
+				}>
+				Order Menu
+			</NavLink>
 			<NavLink>OUR SHOP</NavLink>
 		</>
 	);

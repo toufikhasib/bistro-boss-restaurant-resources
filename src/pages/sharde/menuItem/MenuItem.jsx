@@ -1,3 +1,5 @@
+
+
 const MenuItem = ({ item }) => {
 	const { image, name, price, recipe } = item;
 	// console.log(item);
@@ -16,6 +18,7 @@ const MenuItem = ({ item }) => {
 				<p className='text-2xl md:text-base text-[#151515] pt-5'>{recipe}</p>
 			</div>
 			<p>{price}</p>
+			
 		</div>
 	);
 };
