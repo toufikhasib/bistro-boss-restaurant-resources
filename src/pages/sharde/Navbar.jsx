@@ -4,7 +4,7 @@ import { FaCartPlus } from "react-icons/fa";
 import useCart from "../../coustomHooks/useCart";
 
 const Navbar = () => {
-	const [cart]=useCart()
+	const [cart] = useCart();
 	const navlink = (
 		<>
 			<NavLink
@@ -15,7 +15,7 @@ const Navbar = () => {
 				Home
 			</NavLink>
 			<NavLink>CONTACT US</NavLink>
-			<NavLink>DASHBOARD</NavLink>
+			<NavLink to='/dashboard'>DASHBOARD</NavLink>
 			<NavLink to='/secret'>Secret</NavLink>
 			<NavLink
 				to='/ourmenu'
@@ -32,9 +32,9 @@ const Navbar = () => {
 				}>
 				Order Menu
 			</NavLink>
-			<NavLink >
+			<NavLink to='/dashboard/cart'>
 				<button className='flex items-center gap-3'>
-				<FaCartPlus size={20}/>
+					<FaCartPlus size={20} />
 					<div className='badge badge-secondary'>+{cart.length}</div>
 				</button>
 			</NavLink>

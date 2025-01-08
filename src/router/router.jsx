@@ -7,6 +7,8 @@ import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import PrivateRouter from "./PrivateRouter";
 import Secret from "../pages/sharde/secret/Secret";
+import Dashboard from "../layout/Dashboard";
+import Cart from "../pages/dashboard/Cart";
 
 const router = createBrowserRouter([
 	{
@@ -18,28 +20,39 @@ const router = createBrowserRouter([
 				element: <Home></Home>,
 			},
 			{
-				path: "/ourmenu",
+				path: "ourmenu",
 				element: <OurMenu></OurMenu>,
 			},
 			{
-				path: "/order/:category",
+				path: "order/:category",
 				element: <OrderFood></OrderFood>,
 			},
 			{
-				path: "/login",
+				path: "login",
 				element: <Login></Login>,
 			},
 			{
-				path: "/register",
+				path: "register",
 				element: <Register></Register>,
 			},
 			{
-				path: "/secret",
+				path: "secret",
 				element: (
 					<PrivateRouter>
 						<Secret></Secret>
 					</PrivateRouter>
 				),
+			},
+		],
+	},
+	// dash board router
+	{
+		path: "dashboard",
+		element: <Dashboard></Dashboard>,
+		children: [
+			{
+				path: "cart",
+				element: <Cart></Cart>,
 			},
 		],
 	},
