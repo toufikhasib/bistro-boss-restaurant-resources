@@ -1,6 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../coustomHooks/useAuth";
+import { FaCartPlus } from "react-icons/fa";
+import useCart from "../../coustomHooks/useCart";
 
 const Navbar = () => {
+	const [cart]=useCart()
 	const navlink = (
 		<>
 			<NavLink
@@ -12,6 +16,7 @@ const Navbar = () => {
 			</NavLink>
 			<NavLink>CONTACT US</NavLink>
 			<NavLink>DASHBOARD</NavLink>
+			<NavLink to='/secret'>Secret</NavLink>
 			<NavLink
 				to='/ourmenu'
 				className={({ isActive }) =>
@@ -27,9 +32,30 @@ const Navbar = () => {
 				}>
 				Order Menu
 			</NavLink>
-			<NavLink>OUR SHOP</NavLink>
+			<NavLink >
+				<button className='flex items-center gap-3'>
+				<FaCartPlus size={20}/>
+					<div className='badge badge-secondary'>+{cart.length}</div>
+				</button>
+			</NavLink>
+			<NavLink
+				to='/login'
+				className={({ isActive }) =>
+					isActive ? "text-[#EEFF25] font-semibold " : ""
+				}>
+				Login
+			</NavLink>
+			<NavLink to='/register'>Register</NavLink>
 		</>
 	);
+	const { user, logOut, setUser } = useAuth();
+	const handleLogOut = () => {
+		logOut().then((result) => {
+			const currentUser = result.user;
+			setUser(currentUser);
+			console.log("logout", currentUser);
+		});
+	};
 	return (
 		<div className='navbar fixed z-50 bg-opacity-40 bg-black text-white max-w-screen-2xl mx-auto py-3'>
 			<div className='navbar-start'>
@@ -64,7 +90,15 @@ const Navbar = () => {
 				<ul className='menu menu-horizontal px-1 gap-5'>{navlink}</ul>
 			</div>
 			<div className='navbar-end'>
-				<a className='btn'>Button</a>
+				{user ? (
+					<button onClick={handleLogOut} className='btn btn-neutral'>
+						logOut
+					</button>
+				) : (
+					<Link to='/login'>
+						<button className='btn btn-neutral'>Login</button>
+					</Link>
+				)}
 			</div>
 		</div>
 	);
