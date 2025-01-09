@@ -2,9 +2,13 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../coustomHooks/useAuth";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
+import useAxiosPublice from "../../coustomHooks/useAxiosPublice";
+import Swal from "sweetalert2";
+import SocialLogin from "../../components/socialLogin/SocialLogin";
 
 const Register = () => {
 	const navigate = useNavigate();
+	const axiosPublice = useAxiosPublice();
 	const { createUser, setUser, updateUserProfile } = useAuth();
 	const {
 		register,
@@ -18,11 +22,21 @@ const Register = () => {
 			.then((result) => {
 				const currentUser = result.user;
 				setUser(currentUser);
-				console.log(currentUser);
+
+				// console.log(currentUser);
 			})
 			.catch((err) => {
-				console.log(err.message);
+				// console.log(err.message);
 			});
+		// user iformaion
+		const userInfo = {
+			name: data.name,
+			email: data.email,
+		};
+		//  save the user name & location
+		axiosPublice.post("/users", userInfo).then((res) => {
+			console.log(res.data);
+		});
 		updateUserProfile(data.name, data.photo)
 			.then(() => {
 				console.log("update your photo success");
@@ -30,7 +44,17 @@ const Register = () => {
 			.catch((error) => {
 				console.log("update profile error", error);
 			});
+		//
+		Swal.fire({
+			position: "top-center",
+			icon: "success",
+			title: "Your register has been success",
+			showConfirmButton: false,
+			timer: 1500,
+		});
+		// from reset
 		reset();
+		// navigate to home page
 		navigate("/");
 	};
 	return (
@@ -142,6 +166,9 @@ const Register = () => {
 							<p className='text-black font-semibold text-center pt-1'>
 								Already registered?<Link to='/login'> Go to login</Link>
 							</p>
+							{/* social login */}
+							<div className='divider'>Or sign up with</div>
+							<SocialLogin></SocialLogin>
 						</form>
 					</div>
 					<div className='text-center lg:text-left'>

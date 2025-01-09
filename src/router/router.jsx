@@ -9,6 +9,7 @@ import PrivateRouter from "./PrivateRouter";
 import Secret from "../pages/sharde/secret/Secret";
 import Dashboard from "../layout/Dashboard";
 import Cart from "../pages/dashboard/Cart";
+import AllUsers from "../pages/dashboard/AllUsers";
 
 const router = createBrowserRouter([
 	{
@@ -50,9 +51,18 @@ const router = createBrowserRouter([
 		path: "dashboard",
 		element: <Dashboard></Dashboard>,
 		children: [
+			// private router
 			{
 				path: "cart",
-				element: <Cart></Cart>,
+				element: (
+					<PrivateRouter>
+						<Cart></Cart>
+					</PrivateRouter>
+				),
+			},
+			{
+				path: "allUser",
+				element: <AllUsers></AllUsers>,
 			},
 		],
 	},

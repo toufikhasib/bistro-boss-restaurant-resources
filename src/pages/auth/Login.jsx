@@ -8,14 +8,18 @@ import useAuth from "../../coustomHooks/useAuth";
 import { Helmet } from "react-helmet-async";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/socialLogin/SocialLogin";
 
 const Login = () => {
 	const { singIn, setUser } = useAuth();
+	
 	const location = useLocation();
 
+	// console.log("login location", location);
+
 	const navigate = useNavigate();
-	const fromLocation = location.state?.from?.pathname || "/";
-	console.log("from locatin pathname",location.state)
+	const fromLoaction = location.state?.from?.pathname || "/";
+
 	const [disabled, setDisables] = useState(true);
 	useEffect(() => {
 		loadCaptchaEnginge(6);
@@ -45,11 +49,11 @@ const Login = () => {
 				  `,
 				},
 			});
+			
 			// Reset the form fields properly
 			from.reset();
 			// Navigate to the previous route or default route
-			navigate(fromLocation, { replace: true });
-			console.log(currentUser);
+			navigate(fromLoaction, { replace: true });
 		});
 		// console.log(email, password);
 	};
@@ -117,10 +121,10 @@ const Login = () => {
 									// required
 								/>
 							</div>
-						
+
 							<div className='form-control mt-6'>
 								<input
-								// todo: false
+									// todo: false
 									disabled={false}
 									type='submit'
 									value='Login'
@@ -130,6 +134,9 @@ const Login = () => {
 							<p className='text-black font-semibold text-center pt-1'>
 								New here?<Link to='/register'> Create a New Account</Link>
 							</p>
+							{/* social login */}
+							<div className='divider'>Or sign in with</div>
+							<SocialLogin></SocialLogin>
 						</form>
 					</div>
 					<div className='text-center lg:text-left'>

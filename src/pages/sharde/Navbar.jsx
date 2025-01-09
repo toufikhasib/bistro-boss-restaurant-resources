@@ -50,11 +50,14 @@ const Navbar = () => {
 	);
 	const { user, logOut, setUser } = useAuth();
 	const handleLogOut = () => {
-		logOut().then((result) => {
-			const currentUser = result.user;
-			setUser(currentUser);
-			console.log("logout", currentUser);
-		});
+		logOut()
+			.then(() => {
+				setUser(null);
+				console.log("User logged out successfully");
+			})
+			.catch((error) => {
+				console.log("Logout error:", error);
+			});
 	};
 	return (
 		<div className='navbar fixed z-50 bg-opacity-40 bg-black text-white max-w-screen-2xl mx-auto py-3'>
